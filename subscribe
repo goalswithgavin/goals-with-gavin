@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up — Gavin Reeder</title>
+<meta name="description" content="Join the list to follow Gavin's build log and get free resources first.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+<div class="wrap">
+<a class="brand" href="index.html"><span class="mark">GR</span> Gavin Reeder</a>
+<button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
+<nav class="primary-nav" aria-label="Primary">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="resources.html">Free Resources</a></li>
+<li><a href="products.html">Products</a></li>
+<li><a href="subscribe.html" aria-current="page">Sign Up</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<main>
+
+<section class="hero" style="padding-bottom:32px;">
+<div class="wrap two-col">
+<div>
+<span class="eyebrow">Join the list</span>
+<h1>Follow the build, get the resources first.</h1>
+<p class="lede">One email whenever there's something real to share — a new post, a free resource, or a product launch. No noise, no daily filler.</p>
+
+<form id="signup-form" class="stack" novalidate>
+<div>
+<label for="name">First name</label>
+<input type="text" id="name" name="name" autocomplete="given-name" required>
+</div>
+<div>
+<label for="email">Email address</label>
+<input type="email" id="email" name="email" autocomplete="email" required>
+</div>
+<button type="submit" class="btn btn-primary">Join the list</button>
+<p id="signup-success" class="form-success" role="status" tabindex="-1">
+You're on the list — thanks for following along.
+</p>
+<p class="form-note">This form is a working demo. See the setup note below to connect it to a real email tool so signups actually get saved.</p>
+</form>
+</div>
+
+<aside class="log-stamp" aria-label="What you get">
+<div class="stamp-title">On the list, you get</div>
+<dl>
+<dt>Updates</dt><dd>Real progress, not hype</dd>
+<dt>Resources</dt><dd>Free, first access</dd>
+<dt>Launches</dt><dd>Early notice</dd>
+<dt>Spam</dt><dd>None</dd>
+</dl>
+</aside>
+</div>
+</section>
+
+<section class="alt">
+<div class="wrap">
+<div class="section-head">
+<span class="eyebrow">For Gavin — setup note</span>
+<h2>Connecting this form to a real inbox</h2>
+</div>
+<p>Right now this form just shows a success message — it doesn't save emails anywhere. To actually collect signups, pick one option:</p>
+<div class="grid-3">
+<article class="card">
+<span class="tag">Easiest</span>
+<h3>Formspree or Getform</h3>
+<p>Free tools that email you every signup. Sign up, get a form endpoint URL, and set it as the form's <code>action</code> attribute.</p>
+</article>
+<article class="card">
+<span class="tag">Built for lists</span>
+<h3>ConvertKit or beehiiv</h3>
+<p>Made for creators sending updates. They give you an embeddable signup form or an endpoint to swap into this page.</p>
+</article>
+<article class="card">
+<span class="tag">All-in-one</span>
+<h3>Mailchimp</h3>
+<p>Free tier included. Create an audience, grab the embedded form code, and drop it into this page in place of the demo form.</p>
+</article>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<div class="wrap">
+<p>© 2026 Gavin Reeder — Build Log</p>
+<ul class="social-row">
+<li><a href="#">TikTok</a></li>
+<li><a href="#">Instagram</a></li>
+<li><a href="#">YouTube</a></li>
+</ul>
+</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
