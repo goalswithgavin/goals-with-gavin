@@ -27,20 +27,67 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Demo email signup handling.
-  // This does NOT send email anywhere yet — it just shows a success message
-  // so you can see how it will feel. See the comment in subscribe.html for
-  // how to connect it to a real list (Mailchimp / ConvertKit / beehiiv / Formspree).
+  // Email signup — submits to Formspree via fetch so the page doesn't
+  // navigate away; shows the inline success message on a real response.
   var form = document.querySelector('#signup-form');
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var success = document.querySelector('#signup-success');
-      if (success) {
-        success.classList.add('show');
-        success.focus();
-      }
-      form.reset();
+      var submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          if (success) {
+            success.textContent = "You're on the list — thanks for following along.";
+            success.classList.add('show');
+            success.focus();
+          }
+          form.reset();
+        } else {
+          if (success) {
+            success.textContent = 'Something went wrong — please try again in a moment.';
+            success.classList.add('show');
+          }
+        }
+      }).catch(function () {
+        if (success) {
+          success.textContent = 'Something went wrong — check your connection and try again.';
+          success.classList.add('show');
+        }
+      }).finally(function () {
+        if (submitBtn) submitBtn.disabled = false;
+      });
+    });
+  }
+
+  // Buy button — product isn't purchasable yet, so show a message
+  // pointing to the email list instead of a broken checkout link.
+  var buyBtn = document.querySelector('#buy-btn');
+  var buyModal = document.querySelector('#buy-modal-overlay');
+  var buyModalClose = document.querySelector('#buy-modal-close');
+  if (buyBtn && buyModal) {
+    buyBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      buyModal.style.display = 'flex';
+    });
+  }
+  if (buyModalClose && buyModal) {
+    buyModalClose.addEventListener('click', function () {
+      buyModal.style.display = 'none';
+    });
+  }
+  if (buyModal) {
+    buyModal.addEventListener('click', function (e) {
+      if (e.target === buyModal) buyModal.style.display = 'none';
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') buyModal.style.display = 'none';
     });
   }
 });
