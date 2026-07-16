@@ -638,47 +638,6 @@ body.has-announce .site-header{ top:42px; }
   .announce-bar{ font-size:.72rem; padding:10px 12px; }
 }
 
-/* ---------- Modal (buy-not-available popup) ---------- */
-.modal-overlay{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(19,26,46,.55);
-  z-index:300;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-.modal-box{
-  position:relative;
-  background:var(--paper-card);
-  border-radius:16px;
-  padding:36px 32px;
-  max-width:420px;
-  width:100%;
-  box-shadow:var(--shadow-lg);
-  text-align:left;
-}
-.modal-box h3{
-  font-family:var(--display);
-  font-size:1.4rem;
-  margin:.3em 0 .5em;
-}
-.modal-box p{ color:var(--ink-soft); }
-.modal-close{
-  position:absolute;
-  top:14px; right:14px;
-  width:32px; height:32px;
-  border-radius:50%;
-  border:1px solid var(--rule);
-  background:var(--paper);
-  color:var(--ink-soft);
-  font-size:1.1rem;
-  line-height:1;
-  cursor:pointer;
-}
-.modal-close:hover{ background:var(--navy-tint); color:var(--navy-dark); }
-
 /* ---------- Empty state (used on Products page) ---------- */
 .empty-state{
   border:1.5px dashed var(--stone);
@@ -1002,31 +961,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }).finally(function () {
         if (submitBtn) submitBtn.disabled = false;
       });
-    });
-  }
-
-  // Buy button — product isn't purchasable yet, so show a message
-  // pointing to the email list instead of a broken checkout link.
-  var buyBtn = document.querySelector('#buy-btn');
-  var buyModal = document.querySelector('#buy-modal-overlay');
-  var buyModalClose = document.querySelector('#buy-modal-close');
-  if (buyBtn && buyModal) {
-    buyBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      buyModal.style.display = 'flex';
-    });
-  }
-  if (buyModalClose && buyModal) {
-    buyModalClose.addEventListener('click', function () {
-      buyModal.style.display = 'none';
-    });
-  }
-  if (buyModal) {
-    buyModal.addEventListener('click', function (e) {
-      if (e.target === buyModal) buyModal.style.display = 'none';
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') buyModal.style.display = 'none';
     });
   }
 });

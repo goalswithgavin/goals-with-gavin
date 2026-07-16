@@ -65,29 +65,4 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
-
-  // Buy button — product isn't purchasable yet, so show a message
-  // pointing to the email list instead of a broken checkout link.
-  var buyBtn = document.querySelector('#buy-btn');
-  var buyModal = document.querySelector('#buy-modal-overlay');
-  var buyModalClose = document.querySelector('#buy-modal-close');
-  if (buyBtn && buyModal) {
-    buyBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      buyModal.style.display = 'flex';
-    });
-  }
-  if (buyModalClose && buyModal) {
-    buyModalClose.addEventListener('click', function () {
-      buyModal.style.display = 'none';
-    });
-  }
-  if (buyModal) {
-    buyModal.addEventListener('click', function (e) {
-      if (e.target === buyModal) buyModal.style.display = 'none';
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') buyModal.style.display = 'none';
-    });
-  }
 });
