@@ -602,6 +602,42 @@ section.alt{ background:var(--paper-card); border-top:1px solid var(--rule); bor
 }
 .product-card ul li{ margin-bottom:4px; }
 
+/* ---------- Announcement bar ---------- */
+.announce-bar{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:200;
+  background:var(--navy);
+  color:#fff;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:11px 16px;
+  font-family:var(--mono);
+  font-size:.82rem;
+  letter-spacing:.02em;
+  text-align:center;
+  box-shadow:var(--shadow-sm);
+}
+.announce-bar:hover{ background:var(--navy-dark); }
+.announce-bar .announce-tag{
+  background:rgba(255,255,255,.18);
+  border-radius:20px;
+  padding:2px 10px;
+  font-size:.7rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  flex:none;
+}
+.announce-bar .announce-arrow{ flex:none; }
+body.has-announce{ padding-top:42px; }
+body.has-announce .site-header{ top:42px; }
+@media (max-width:600px){
+  .announce-bar{ font-size:.72rem; padding:10px 12px; }
+}
+
 /* ---------- Empty state (used on Products page) ---------- */
 .empty-state{
   border:1.5px dashed var(--stone);
@@ -735,7 +771,12 @@ footer.site-footer p{
 
 </style>
 </head>
-<body>
+<body class="has-announce">
+<a class="announce-bar" href="products.html">
+  <span class="announce-tag">New</span>
+  <span>I just released my first product — 50 AI Prompts to Start Your Online Business</span>
+  <span class="announce-arrow">&rarr;</span>
+</a>
 
 <header class="site-header">
   <div class="wrap">
@@ -764,7 +805,7 @@ footer.site-footer p{
         <h1>Follow the build, get the resources first.</h1>
         <p class="lede">One email whenever there's something real to share — a new post, a free resource, or a product launch. No noise, no daily filler.</p>
 
-        <form id="signup-form" class="stack" action="https://formspree.io/f/mkodozqk" method="POST" novalidate>
+        <form id="signup-form" class="stack" novalidate>
           <div>
             <label for="name">First name</label>
             <input type="text" id="name" name="name" autocomplete="given-name" required>
@@ -777,7 +818,6 @@ footer.site-footer p{
           <p id="signup-success" class="form-success" role="status" tabindex="-1">
             You're on the list — thanks for following along.
           </p>
-          <p class="form-note">This form is a working demo. See the setup note below to connect it to a real email tool so signups actually get saved.</p>
         </form>
       </div>
 
@@ -790,33 +830,6 @@ footer.site-footer p{
           <dt>Spam</dt><dd>None</dd>
         </dl>
       </aside>
-    </div>
-  </section>
-
-  <section class="alt" data-reveal>
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">For Gavin — setup note</span>
-        <h2>Connecting this form to a real inbox</h2>
-      </div>
-      <p>Right now this form just shows a success message — it doesn't save emails anywhere. To actually collect signups, pick one option:</p>
-      <div class="grid-3">
-        <article class="card">
-          <span class="tag">Easiest</span>
-          <h3>Formspree or Getform</h3>
-          <p>Free tools that email you every signup. Sign up, get a form endpoint URL, and set it as the form's <code>action</code> attribute.</p>
-        </article>
-        <article class="card">
-          <span class="tag">Built for lists</span>
-          <h3>ConvertKit or beehiiv</h3>
-          <p>Made for creators sending updates. They give you an embeddable signup form or an endpoint to swap into this page.</p>
-        </article>
-        <article class="card">
-          <span class="tag">All-in-one</span>
-          <h3>Mailchimp</h3>
-          <p>Free tier included. Create an audience, grab the embedded form code, and drop it into this page in place of the demo form.</p>
-        </article>
-      </div>
     </div>
   </section>
 
