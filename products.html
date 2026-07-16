@@ -602,6 +602,42 @@ section.alt{ background:var(--paper-card); border-top:1px solid var(--rule); bor
 }
 .product-card ul li{ margin-bottom:4px; }
 
+/* ---------- Announcement bar ---------- */
+.announce-bar{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:200;
+  background:var(--navy);
+  color:#fff;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:11px 16px;
+  font-family:var(--mono);
+  font-size:.82rem;
+  letter-spacing:.02em;
+  text-align:center;
+  box-shadow:var(--shadow-sm);
+}
+.announce-bar:hover{ background:var(--navy-dark); }
+.announce-bar .announce-tag{
+  background:rgba(255,255,255,.18);
+  border-radius:20px;
+  padding:2px 10px;
+  font-size:.7rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  flex:none;
+}
+.announce-bar .announce-arrow{ flex:none; }
+body.has-announce{ padding-top:42px; }
+body.has-announce .site-header{ top:42px; }
+@media (max-width:600px){
+  .announce-bar{ font-size:.72rem; padding:10px 12px; }
+}
+
 /* ---------- Empty state (used on Products page) ---------- */
 .empty-state{
   border:1.5px dashed var(--stone);
@@ -799,7 +835,6 @@ footer.site-footer p{
             <li>10 general-use prompts for everyday tasks</li>
           </ul>
           <a class="btn btn-primary" href="#">Buy now — $19</a>
-          <p class="form-note">Checkout link goes here once connected — see the setup note below.</p>
         </div>
       </article>
 
@@ -824,33 +859,6 @@ footer.site-footer p{
           <span class="tag tag-pine">Open to feedback</span>
           <h3>What do you want?</h3>
           <p>If there's something you'd actually want from me, tell me — it'll shape what I build next.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt" data-reveal>
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">For Gavin — setup note</span>
-        <h2>Connecting the buy button to real checkout</h2>
-      </div>
-      <p>The "Buy now" button above links to <code>#</code> right now — it doesn't charge anyone. To actually sell the prompt pack, pick one:</p>
-      <div class="grid-3">
-        <article class="card">
-          <span class="tag tag-navy">Easiest</span>
-          <h3>Gumroad</h3>
-          <p>Upload your PDF, set the price to $19, and Gumroad gives you a hosted checkout link — paste it into the button's <code>href</code>.</p>
-        </article>
-        <article class="card">
-          <span class="tag tag-amber">Also easy</span>
-          <h3>Payhip</h3>
-          <p>Similar to Gumroad — free to start, handles file delivery and payment, gives you a link to drop in.</p>
-        </article>
-        <article class="card">
-          <span class="tag tag-pine">More control</span>
-          <h3>Stripe Payment Links</h3>
-          <p>Create a $19 Payment Link in your Stripe dashboard — no code needed, just swap the URL into the button.</p>
         </article>
       </div>
     </div>
