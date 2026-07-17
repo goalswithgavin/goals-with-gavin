@@ -12,6 +12,30 @@ Each page is self-contained — its CSS lives in a `<style>` block near the top 
 - **Nav links / social links**: the header and footer repeat at the top and bottom of every page — update the `<nav>` and `<ul class="social-row">` blocks the same way in all five files if you add a page or social link.
 - **New sections**: copy an existing `<section>...</section>` block and edit its contents — the CSS classes (`.card`, `.panel`, `.grid-3`, `.hero`, etc.) will style it automatically.
 
+## Updating your live numbers (stats.json)
+
+The homepage stat strip, the two goal progress bars, and the "sold so far" count on the Products page are all driven by one file: **`stats.json`**. Edit the numbers in that one file and every page updates — no HTML editing needed.
+
+```json
+{
+  "launchDate": "2026-07-02",
+  "videosPosted": 20,
+  "emailSubscribers": 0,
+  "pdfsSold": 0,
+  "product2Status": "Idea stage"
+}
+```
+
+- `launchDate` — set this to the actual date you started building. "Days building in public" is calculated from this automatically every day — you never have to touch it again once it's correct.
+- `videosPosted` — update by hand whenever you post a new one.
+- `emailSubscribers` — check your Formspree dashboard and update this number. This is a placeholder right now — **update it to your real current count before this goes live**, since the site's whole thing is "no fake numbers."
+- `pdfsSold` — check your Payhip sales dashboard and update this number. The "$ earned" goal bar is calculated automatically from this (`pdfsSold × $19`), so you only ever edit the one number.
+- `product2Status` — a short status like `"Idea stage"`, `"In progress"`, or `"Coming soon"`.
+
+**Important — this is NOT fully automatic (yet).** Nothing currently pings your Formspree or Payhip account in real time — you have to check those dashboards and update the numbers in `stats.json` yourself when they change. True zero-touch automation (the number updating itself the instant someone subscribes or buys) needs a small backend service holding your Formspree/Payhip API keys — that's a bigger, more technical project. If you want to go that route later, it's doable for free using a Vercel serverless function, and I can help you set it up.
+
+For now, checking your dashboards and editing this one file (weekly, or whenever you remember) is what most solo creators actually do — it's quick and it keeps every number on your site honest.
+
 ## Photos
 
 Your photos are already in place:
