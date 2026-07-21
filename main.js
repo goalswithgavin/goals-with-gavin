@@ -24,7 +24,7 @@ var SITE_STATS_DEFAULT = {
   videosPosted: 20,
   emailSubscribers: 2,
   pdfsSold: 0,
-  product2Status: "Idea stage"
+  websitesBuilt: 0
 };
 
 function daysSinceLaunch(dateStr) {
@@ -61,9 +61,11 @@ function renderSiteStats(stats) {
   if (g2current) g2current.textContent = '$' + earned + ' / $100';
   if (g2bar) g2bar.style.width = Math.min(100, (earned / 100) * 100) + '%';
 
-  // Goal 3 — launch product #2 (status text, not numeric)
-  var g3status = document.querySelector('[data-goal="3-status"]');
-  if (g3status) g3status.textContent = stats.product2Status;
+  // Goal 3 — build 10 websites (for other businesses)
+  var g3current = document.querySelector('[data-goal="3-current"]');
+  var g3bar = document.querySelector('[data-goal="3-bar"]');
+  if (g3current) g3current.textContent = stats.websitesBuilt + ' / 10 websites';
+  if (g3bar) g3bar.style.width = Math.min(100, (stats.websitesBuilt / 10) * 100) + '%';
 }
 
 document.addEventListener('DOMContentLoaded', function () {
