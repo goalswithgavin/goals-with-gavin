@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Gfactor Web</title>
+<title>Contact — Gavin Reeder</title>
 <meta name="description" content="Get in touch to start a website project.">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <nav class="site-nav">
   <div class="wrap">
     <a href="index.html" class="brand">
-      <div class="seal sm"><div class="seal-core">GF</div></div>
-      <div class="brand-text">Gfactor Web<small>Sites &amp; Design</small></div>
+      <div class="seal sm"><div class="seal-core">GR</div></div>
+      <div class="brand-text">Gavin Reeder<small>Web Developer</small></div>
     </a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <ul class="nav-links" data-mobile-open="false">
@@ -37,22 +37,23 @@
 <section>
   <div class="wrap contact-grid">
 
-    <form class="box contact-form-box reveal" id="contact-form" action="mailto:gfactor1922@gmail.com" method="post" enctype="text/plain">
+    <form class="box contact-form-box reveal" id="contact-form" action="https://formspree.io/f/mkodozqk" method="POST">
+      <input type="hidden" name="_subject" value="New website inquiry — GavinReeder.com">
       <div class="field">
         <label for="name">Your name</label>
-        <input type="text" id="name" name="Name" required placeholder="Jane Smith">
+        <input type="text" id="name" name="name" required placeholder="Jane Smith">
       </div>
       <div class="field">
         <label for="business">Business name</label>
-        <input type="text" id="business" name="Business" placeholder="Smith & Co.">
+        <input type="text" id="business" name="business" placeholder="Smith & Co.">
       </div>
       <div class="field">
         <label for="email">Email address</label>
-        <input type="email" id="email" name="Email" required placeholder="jane@smithco.com">
+        <input type="email" id="email" name="email" required placeholder="jane@smithco.com">
       </div>
       <div class="field">
         <label for="project">What do you need?</label>
-        <select id="project" name="Project type">
+        <select id="project" name="project_type">
           <option>New website</option>
           <option>Redesign of an existing website</option>
           <option>Ongoing updates / support</option>
@@ -61,10 +62,10 @@
       </div>
       <div class="field">
         <label for="message">Tell me about your business and what you're hoping for</label>
-        <textarea id="message" name="Message" required placeholder="What does your business do, and what should the site help you accomplish?"></textarea>
+        <textarea id="message" name="message" required placeholder="What does your business do, and what should the site help you accomplish?"></textarea>
       </div>
       <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send message <span class="btn-arrow">→</span></button>
-      <p style="margin-top:14px; font-size:13px;">This opens your email app with the message pre-filled — nothing sends until you hit send there.</p>
+      <p style="margin-top:14px; font-size:13px;">Sends straight to my inbox — you'll see a confirmation page once it goes through.</p>
     </form>
 
     <div class="reveal contact-info">
@@ -87,7 +88,7 @@
 <footer class="footer">
   <div class="wrap">
     <div>
-      <div class="footer-brand"><div class="seal sm"><div class="seal-core">GF</div></div>Gfactor Web</div>
+      <div class="footer-brand"><div class="seal sm"><div class="seal-core">GR</div></div>Gavin Reeder</div>
       <p style="margin-top:12px; max-width:240px; color:rgba(251,247,237,0.6);">Websites for business owners who want results, not just a pretty page.</p>
     </div>
     <div class="footer-cols">
@@ -105,11 +106,11 @@
     </div>
   </div>
   <div class="wrap footer-bottom">
-    <span>© <span data-year></span> Gfactor Web</span>
+    <span>© <span data-year></span> Gavin Reeder</span>
     <span>Designed &amp; built by hand</span>
   </div>
 </footer>
 
-<script src="script.js?v=2"></script>
+<script src="script.js"></script>
 </body>
 </html>
