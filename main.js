@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 var SITE_STATS_DEFAULT = {
   launchDate: "2026-07-02",
   videosPosted: 20,
-  emailSubscribers: 0,
+  emailSubscribers: 2,
   pdfsSold: 0,
   product2Status: "Idea stage"
 };
@@ -107,6 +107,44 @@ document.addEventListener('DOMContentLoaded', function () {
             success.focus();
           }
           form.reset();
+        } else {
+          if (success) {
+            success.textContent = 'Something went wrong — please try again in a moment.';
+            success.classList.add('show');
+          }
+        }
+      }).catch(function () {
+        if (success) {
+          success.textContent = 'Something went wrong — check your connection and try again.';
+          success.classList.add('show');
+        }
+      }).finally(function () {
+        if (submitBtn) submitBtn.disabled = false;
+      });
+    });
+  }
+
+  // Website-service contact form — same pattern as the signup form,
+  // submits via fetch to Formspree so the page doesn't navigate away.
+  var contactForm = document.querySelector('#contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var success = document.querySelector('#contact-success');
+      var submitBtn = contactForm.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          if (success) {
+            success.classList.add('show');
+            success.focus();
+          }
+          contactForm.reset();
         } else {
           if (success) {
             success.textContent = 'Something went wrong — please try again in a moment.';

@@ -851,6 +851,134 @@ footer.site-footer p{
   margin:0 8px 8px 0;
 }
 
+/* ---------- Homepage service CTA box ---------- */
+.service-cta{
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,.10), transparent 55%),
+    linear-gradient(135deg, var(--navy), var(--navy-dark));
+  border-radius:16px;
+  padding:40px;
+  color:#fff;
+  display:grid;
+  grid-template-columns:1.4fr .8fr;
+  gap:28px;
+  align-items:center;
+  box-shadow:var(--shadow-lg);
+}
+@media (max-width:760px){ .service-cta{ grid-template-columns:1fr; text-align:left; } }
+.service-cta .eyebrow{ color:rgba(255,255,255,.8); }
+.service-cta .eyebrow::before{ background:#fff; }
+.service-cta h2{ color:#fff; font-size:1.7rem; margin-top:.3em; }
+.service-cta p{ color:rgba(255,255,255,.85); }
+.service-cta .btn-primary{
+  background:#fff;
+  color:var(--navy-dark);
+  border-color:#fff;
+}
+.service-cta .btn-primary:hover{
+  background:var(--amber);
+  color:#fff;
+  border-color:var(--amber);
+}
+
+/* ---------- Floating corner CTA button ---------- */
+.corner-cta{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:250;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--navy);
+  color:#fff;
+  text-decoration:none;
+  padding:13px 20px;
+  border-radius:999px;
+  font-family:var(--mono);
+  font-size:.8rem;
+  letter-spacing:.02em;
+  box-shadow:var(--shadow-lg);
+  transition:transform .15s ease, background-color .15s ease;
+}
+.corner-cta:hover{ background:var(--navy-dark); transform:translateY(-2px); }
+.corner-cta svg{ width:16px; height:16px; flex:none; }
+@media (max-width:600px){
+  .corner-cta{ right:14px; bottom:14px; padding:11px 16px; font-size:.72rem; }
+  .corner-cta .corner-cta-full{ display:none; }
+}
+
+/* ---------- Resource lists (tools + process steps) ---------- */
+.tool-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+@media (max-width:700px){ .tool-list{ grid-template-columns:1fr; } }
+.tool-item{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  background:var(--paper-card);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:16px 18px;
+}
+.tool-item .tool-name{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:.98rem;
+  margin-bottom:3px;
+}
+.tool-item .tool-desc{
+  font-size:.92rem;
+  color:var(--ink-soft);
+  margin:0;
+}
+.tool-item .tool-badge{
+  font-family:var(--mono);
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--navy-dark);
+  background:var(--navy-tint);
+  border-radius:6px;
+  padding:2px 8px;
+  flex:none;
+  margin-top:2px;
+}
+
+.process-steps{
+  counter-reset:step;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.process-step{
+  display:grid;
+  grid-template-columns:44px 1fr;
+  gap:16px;
+  padding:18px 0;
+  border-bottom:1px solid var(--rule);
+}
+.process-step:last-child{ border-bottom:none; }
+.process-step .step-num{
+  counter-increment:step;
+  width:36px; height:36px;
+  border-radius:50%;
+  background:var(--navy);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--mono);
+  font-weight:700;
+  font-size:.85rem;
+}
+.process-step .step-num::before{ content: counter(step); }
+.process-step h3{ font-size:1rem; margin-bottom:4px; }
+.process-step p{ margin:0; color:var(--ink-soft); font-size:.94rem; }
+
 </style>
 </head>
 <body class="has-announce">
@@ -890,9 +1018,109 @@ footer.site-footer p{
 
   <section data-reveal>
     <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How this site got made</span>
+        <h2>The tools I used to build this site.</h2>
+        <p>You don't need to know how to code to build something like this. Here's exactly what I used.</p>
+      </div>
+      <div class="tool-list">
+        <div class="tool-item">
+          <span class="tool-badge">AI</span>
+          <div>
+            <div class="tool-name">Claude</div>
+            <p class="tool-desc">The AI I used to design, write, and code this entire site — I described what I wanted and it wrote the actual files. No prior coding experience needed.</p>
+          </div>
+        </div>
+        <div class="tool-item">
+          <span class="tool-badge">Storage</span>
+          <div>
+            <div class="tool-name">GitHub</div>
+            <p class="tool-desc">A free place to store my site's code and keep a history of every change I make.</p>
+          </div>
+        </div>
+        <div class="tool-item">
+          <span class="tool-badge">Hosting</span>
+          <div>
+            <div class="tool-name">Vercel</div>
+            <p class="tool-desc">Turns my files into a real, live website with its own link — free, and it updates automatically whenever I change something.</p>
+          </div>
+        </div>
+        <div class="tool-item">
+          <span class="tool-badge">Email</span>
+          <div>
+            <div class="tool-name">Formspree</div>
+            <p class="tool-desc">Collects email signups and contact messages from my site without needing my own server.</p>
+          </div>
+        </div>
+        <div class="tool-item">
+          <span class="tool-badge">Payments</span>
+          <div>
+            <div class="tool-name">Payhip</div>
+            <p class="tool-desc">Handles selling and delivering my digital products, and takes payment securely.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" data-reveal>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The simple version</span>
+        <h2>How I actually built this, step by step.</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num"></div>
+          <div>
+            <h3>Described the site to Claude</h3>
+            <p>I told it what pages I wanted, the vibe I was going for, and my brand colors — it wrote the actual code.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num"></div>
+          <div>
+            <h3>Uploaded the files to GitHub</h3>
+            <p>Made a free GitHub account and uploaded everything Claude gave me.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num"></div>
+          <div>
+            <h3>Connected GitHub to Vercel</h3>
+            <p>That turned my files into an actual live website with a real link, for free.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num"></div>
+          <div>
+            <h3>Hooked up email signups</h3>
+            <p>Connected a free Formspree form so people could join my list right from the site.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num"></div>
+          <div>
+            <h3>Added a way to sell</h3>
+            <p>Set up Payhip to handle payment and product delivery automatically.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num"></div>
+          <div>
+            <h3>Keep improving it</h3>
+            <p>Whenever I want a change, I just describe it to Claude and update the files. No coding required, ever.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-reveal>
+    <div class="wrap">
       <div class="empty-state">
         <span class="eyebrow">Coming soon</span>
-        <h3>The first resource is in progress.</h3>
+        <h3>My first downloadable resource is in progress.</h3>
         <p>I'm putting together my first free download based on what I learned from my first business attempt. Sign up below and it'll land in your inbox the day it's ready — first, before it's posted anywhere else.</p>
         <a class="btn btn-primary" href="subscribe.html">Get notified first</a>
       </div>
@@ -1062,8 +1290,50 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  // Website-service contact form — same pattern as the signup form,
+  // submits via fetch to Formspree so the page doesn't navigate away.
+  var contactForm = document.querySelector('#contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var success = document.querySelector('#contact-success');
+      var submitBtn = contactForm.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          if (success) {
+            success.classList.add('show');
+            success.focus();
+          }
+          contactForm.reset();
+        } else {
+          if (success) {
+            success.textContent = 'Something went wrong — please try again in a moment.';
+            success.classList.add('show');
+          }
+        }
+      }).catch(function () {
+        if (success) {
+          success.textContent = 'Something went wrong — check your connection and try again.';
+          success.classList.add('show');
+        }
+      }).finally(function () {
+        if (submitBtn) submitBtn.disabled = false;
+      });
+    });
+  }
 });
 
 </script>
+<a class="corner-cta" href="products.html#website-service">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3.5 6.5l8.5 6 8.5-6M4 5.5h16A1 1 0 0 1 21 6.5v11A1 1 0 0 1 20 18.5H4A1 1 0 0 1 3 17.5v-11A1 1 0 0 1 4 5.5z"/></svg>
+  <span class="corner-cta-full">Need a website? Let's talk</span>
+</a>
 </body>
 </html>

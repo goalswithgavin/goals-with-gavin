@@ -840,3 +840,131 @@ footer.site-footer p{
   padding:4px 12px;
   margin:0 8px 8px 0;
 }
+
+/* ---------- Homepage service CTA box ---------- */
+.service-cta{
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,.10), transparent 55%),
+    linear-gradient(135deg, var(--navy), var(--navy-dark));
+  border-radius:16px;
+  padding:40px;
+  color:#fff;
+  display:grid;
+  grid-template-columns:1.4fr .8fr;
+  gap:28px;
+  align-items:center;
+  box-shadow:var(--shadow-lg);
+}
+@media (max-width:760px){ .service-cta{ grid-template-columns:1fr; text-align:left; } }
+.service-cta .eyebrow{ color:rgba(255,255,255,.8); }
+.service-cta .eyebrow::before{ background:#fff; }
+.service-cta h2{ color:#fff; font-size:1.7rem; margin-top:.3em; }
+.service-cta p{ color:rgba(255,255,255,.85); }
+.service-cta .btn-primary{
+  background:#fff;
+  color:var(--navy-dark);
+  border-color:#fff;
+}
+.service-cta .btn-primary:hover{
+  background:var(--amber);
+  color:#fff;
+  border-color:var(--amber);
+}
+
+/* ---------- Floating corner CTA button ---------- */
+.corner-cta{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:250;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--navy);
+  color:#fff;
+  text-decoration:none;
+  padding:13px 20px;
+  border-radius:999px;
+  font-family:var(--mono);
+  font-size:.8rem;
+  letter-spacing:.02em;
+  box-shadow:var(--shadow-lg);
+  transition:transform .15s ease, background-color .15s ease;
+}
+.corner-cta:hover{ background:var(--navy-dark); transform:translateY(-2px); }
+.corner-cta svg{ width:16px; height:16px; flex:none; }
+@media (max-width:600px){
+  .corner-cta{ right:14px; bottom:14px; padding:11px 16px; font-size:.72rem; }
+  .corner-cta .corner-cta-full{ display:none; }
+}
+
+/* ---------- Resource lists (tools + process steps) ---------- */
+.tool-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+@media (max-width:700px){ .tool-list{ grid-template-columns:1fr; } }
+.tool-item{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  background:var(--paper-card);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:16px 18px;
+}
+.tool-item .tool-name{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:.98rem;
+  margin-bottom:3px;
+}
+.tool-item .tool-desc{
+  font-size:.92rem;
+  color:var(--ink-soft);
+  margin:0;
+}
+.tool-item .tool-badge{
+  font-family:var(--mono);
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--navy-dark);
+  background:var(--navy-tint);
+  border-radius:6px;
+  padding:2px 8px;
+  flex:none;
+  margin-top:2px;
+}
+
+.process-steps{
+  counter-reset:step;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.process-step{
+  display:grid;
+  grid-template-columns:44px 1fr;
+  gap:16px;
+  padding:18px 0;
+  border-bottom:1px solid var(--rule);
+}
+.process-step:last-child{ border-bottom:none; }
+.process-step .step-num{
+  counter-increment:step;
+  width:36px; height:36px;
+  border-radius:50%;
+  background:var(--navy);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--mono);
+  font-weight:700;
+  font-size:.85rem;
+}
+.process-step .step-num::before{ content: counter(step); }
+.process-step h3{ font-size:1rem; margin-bottom:4px; }
+.process-step p{ margin:0; color:var(--ink-soft); font-size:.94rem; }

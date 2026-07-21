@@ -36,6 +36,15 @@ The homepage stat strip, the two goal progress bars, and the "sold so far" count
 
 For now, checking your dashboards and editing this one file (weekly, or whenever you remember) is what most solo creators actually do — it's quick and it keeps every number on your site honest.
 
+## The "build you a website" service
+
+There's a second offering now on `products.html` (anchored at `#website-service`), plus a floating "Need a website? Let's talk" button in the bottom-right corner of every page — both link to the same spot.
+
+- **Price is a placeholder.** I set it to "Starting at $150" since I don't know what you actually want to charge — only you can decide that. Open `products.html`, find `<div class="pc-price">Starting at $150</div>`, and change it to whatever you want.
+- **The contact form** sends inquiries to the same Formspree inbox as your email signups (`mkodozqk`), but tags them differently — each contact submission has the subject "New website inquiry" so you can tell them apart from newsletter signups in your Formspree dashboard. If you'd rather keep them fully separate, create a second free form at formspree.io and swap the `action` URL in the `<form id="contact-form">` tag on `products.html`.
+- **No public email address is shown anywhere on the site.** I did this on purpose — publishing a personal email publicly (especially as a minor) tends to attract spam. The contact form does the same job without exposing it. If you'd rather have a direct `mailto:` link somewhere too, just let me know your email and I'll add it.
+- **The floating corner button** links to `products.html#website-service` from every page. To change its text, search for `corner-cta-full` in each HTML file — it's the same line in all five.
+
 ## Photos
 
 Your photos are already in place:
