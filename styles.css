@@ -82,8 +82,13 @@ p{ line-height: 1.7; color: var(--muted); margin: 0; }
   flex-shrink:0;
   display:flex; align-items:center; justify-content:center;
 }
-.seal::before{ display:none; }
-.seal-core{ width:100%; height:100%; }
+.seal{ position:relative; }
+.seal::before{
+  content:""; position:absolute; inset:0;
+  background: url('logo-ring.png') center/contain no-repeat;
+  animation: seal-rotate 40s linear infinite;
+}
+.seal-core{ width:100%; height:100%; position:relative; z-index:1; }
 .seal-core img{ width:100%; height:100%; object-fit:contain; display:block; }
 .seal.sm{ width:48px; height:48px; }
 .home-hero .seal{ width:132px; height:132px; }
@@ -420,3 +425,5 @@ section{ padding: 100px 0; }
    ============================================ */
 .reveal{ opacity:0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.in{ opacity:1; transform: translateY(0); }
+
+@keyframes seal-rotate{ to{ transform: rotate(360deg); } }
