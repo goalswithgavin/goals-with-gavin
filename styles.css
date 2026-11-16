@@ -91,6 +91,7 @@ p{ line-height: 1.7; color: var(--muted); margin: 0; }
 .seal-core{ width:100%; height:100%; position:relative; z-index:1; }
 .seal-core img{ width:100%; height:100%; object-fit:contain; display:block; }
 .seal.sm{ width:48px; height:48px; }
+.seal.sm::before{ display:none; }
 .home-hero .seal{ width:132px; height:132px; }
 
 /* ============================================
