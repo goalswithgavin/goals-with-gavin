@@ -5,7 +5,7 @@ const CHAT_ENDPOINT = '';
 const CHAT_EMAIL = 'goalswithgavin@gmail.com';
 
 (function () {
-  const PACKAGES = ['Simple — from $249', 'Medium — from $499', 'Advanced — from $899', 'Not sure — help me choose'];
+  const PACKAGES = ['Simple — from $249', 'Standard — from $499', 'Pro — from $899', 'Not sure — help me choose'];
   const STEPS = [
     { key: 'name', type: 'text', ask: () => "What's your name?" },
     { key: 'business', type: 'text', ask: (a) => `Nice to meet you, ${a.name}! What's your business called, and what do you do?` },
@@ -19,7 +19,7 @@ const CHAT_EMAIL = 'goalswithgavin@gmail.com';
     { key: 'notes', type: 'text', optional: true, ask: () => "Anything else you'd like me to know? (Type \"no\" to skip.)" }
   ];
   const LABELS = { name: 'Name', business: 'Business', need: 'Needs', url: 'Current site', package: 'Package', goal: 'Main goal', timeline: 'Timeline', contact: 'Contact', notes: 'Notes' };
-  const PRICING_TEXT = 'Packages: Simple from $249 (up to 3 pages), Medium from $499 (up to 6 pages), Advanced from $899 (up to 10 pages). Final cost depends on what your site needs.';
+  const PRICING_TEXT = 'Packages: Simple from $249 (up to 3 pages), Standard from $499 (up to 6 pages), Pro from $899 (up to 10 pages). Final cost depends on what your site needs.';
 
   let state = { answers: {}, step: -1, log: [], done: false };
   try { const s = JSON.parse(sessionStorage.getItem('quoteChat') || 'null'); if (s && s.log) state = s; } catch (e) {}
