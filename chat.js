@@ -176,7 +176,7 @@ const CHAT_EMAIL = 'goalswithgavin@gmail.com';
  },
  {
   "q": "How do I get a quote or contact you?",
-  "a": "Use the quote chat on this site (it takes about 2 minutes) or email goalswithgavin@gmail.com. I reply within 1–2 business days.",
+  "a": "Use the quote chat on this site (it takes about 2 minutes) email goalswithgavin@gmail.com, or call 603-205-0235. I reply within 1–2 business days.",
   "k": [
    "quote",
    "contact",

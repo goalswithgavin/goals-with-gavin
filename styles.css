@@ -515,3 +515,6 @@ section{ padding: 100px 0; }
 .faq-item p{ margin: 0; padding: 0 22px 20px; font-size: 15px; line-height: 1.6; }
 .faq-more{ text-align:center; margin-top: 28px; font-size: 15px; }
 .faq-more a{ color: var(--navy); font-weight:600; text-decoration: underline; }
+
+.hero-card .hero-call{ margin-top: 6px; font-size: 14px; color: var(--ink); }
+.hero-card .hero-call a{ color: var(--navy); font-weight:700; text-decoration: underline; }
