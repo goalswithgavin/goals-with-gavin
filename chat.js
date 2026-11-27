@@ -233,7 +233,9 @@ const CHAT_EMAIL = 'goalswithgavin@gmail.com';
   const input = el('input'); input.type = 'text'; input.placeholder = 'Answer or ask a question…'; input.autocomplete = 'off'; input.setAttribute('aria-label', 'Your message');
   const sendBtn = el('button', '', 'Send'); sendBtn.type = 'submit';
   form.append(input, sendBtn);
-  panel.append(head, logEl, chipsEl, form);
+  const note = el('div', 'chat-note'); note.append('Your messages are sent to Gavin. ');
+  const pl = el('a', '', 'Privacy Policy'); pl.href = 'privacy.html'; note.append(pl);
+  panel.append(head, logEl, chipsEl, form, note);
   document.body.append(launcher, panel);
 
   // ---------- helpers ----------
