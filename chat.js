@@ -1,7 +1,7 @@
 /* Quote assistant — answers common questions and collects project details for Gavin.
    TO RECEIVE ANSWERS DIRECTLY: create a free form at formspree.io (or similar), then paste its
    endpoint URL below, e.g. 'https://formspree.io/f/abcdwxyz'. Leave '' to fall back to a pre-filled email. */
-const CHAT_ENDPOINT = '';
+const CHAT_ENDPOINT = 'https://formspree.io/f/mgakbaon';
 const CHAT_EMAIL = 'goalswithgavin@gmail.com';
 /*FAQ-START*/const FAQ = [
  {
@@ -358,7 +358,7 @@ const CHAT_EMAIL = 'goalswithgavin@gmail.com';
   }
   async function send() {
     chipsEl.textContent = '';
-    const payload = Object.assign({}, state.answers, { questions: state.questions.join(' | '), page: location.href, _subject: 'Website quote request from the chat assistant' });
+    const payload = Object.assign({}, state.answers, { message: summaryText(), email: /@/.test(state.answers.contact || '') ? state.answers.contact : undefined, questions: state.questions.join(' | '), page: location.href, _subject: 'Website quote request from the chat assistant' });
     if (CHAT_ENDPOINT) {
       addMsg('bot', 'Sending…', false);
       try {
